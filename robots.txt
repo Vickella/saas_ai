@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saasai.veritypack.cloud/sitemap.xml
+Sitemap: https://ai.veritycore.co.zw/sitemap.xml
