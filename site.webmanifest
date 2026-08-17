@@ -1,9 +1,12 @@
 {
   "name": "VerityAI",
   "short_name": "VerityAI",
-  "description": "AI sales assistant and lead management workspace for growing businesses.",
+  "description": "Custom AI assistants and business automation from VerityCore Consultancy.",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
+  "lang": "en-ZW",
+  "categories": ["business", "productivity"],
   "display": "standalone",
   "background_color": "#f5f8fc",
   "theme_color": "#071a33",
@@ -12,7 +15,7 @@
       "src": "/assets/img/veritycore/veritycore-icon-square.webp",
       "sizes": "512x512",
       "type": "image/webp",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

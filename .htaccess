@@ -3,6 +3,8 @@
 # ==========================
 
 Options -Indexes
+DirectoryIndex index.html
+ServerSignature Off
 
 # Enable rewrite engine
 <IfModule mod_rewrite.c>
@@ -15,7 +17,7 @@ Options -Indexes
   # Consolidate the home page and retire unused template routes
   RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
   RewriteRule ^index\.html$ / [R=301,L]
-  RewriteRule ^(blog|blog-details|portfolio-details|service-details|starter-page)\.html$ / [R=301,L,NC]
+  RewriteRule ^(blog|blog-details|portfolio-details|service-details|starter-page|index\.template-backup)\.html$ / [R=301,L,NC]
 
   # Remove trailing slash from non-directories
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -80,14 +82,19 @@ Options -Indexes
   </FilesMatch>
 
   <FilesMatch "\.(html)$">
-    Header set Cache-Control "public, max-age=3600"
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "^(robots\.txt|sitemap\.xml|llms\.txt|site\.webmanifest)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
 
   Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
 
 # ==========================
@@ -97,6 +104,8 @@ AddType image/webp .webp
 AddType image/svg+xml .svg
 AddType font/woff2 .woff2
 AddType font/woff .woff
+AddType application/manifest+json .webmanifest
+AddType text/plain .txt
 
 # ==========================
 # Prevent ETag mismatch

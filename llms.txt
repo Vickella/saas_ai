@@ -4,10 +4,10 @@
 
 ## Official links
 
-- Product website: https://ai.veritycore.co.zw/
-- Create an account: https://saasai.veritypack.cloud/verityai/signup
-- Sign in: https://saasai.veritypack.cloud/verityai/signin
-- Company website: https://veritycore.co.zw/
+- [VerityAI product website](https://ai.veritycore.co.zw/)
+- [Create a VerityAI account](https://saasai.veritypack.cloud/verityai/signup)
+- [Sign in to VerityAI](https://saasai.veritypack.cloud/verityai/signin)
+- [VerityCore Consultancy website](https://veritycore.co.zw/)
 - Support: support@veritycore.co.zw
 
 ## What VerityAI does

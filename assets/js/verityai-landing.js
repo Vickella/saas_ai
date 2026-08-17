@@ -17,7 +17,23 @@
   });
 
   nav?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || !nav?.classList.contains("open")) return;
+    closeMenu();
+    toggle?.focus();
+  });
+  document.addEventListener("click", event => {
+    if (!nav?.classList.contains("open") || nav.contains(event.target) || toggle?.contains(event.target)) return;
+    closeMenu();
+  });
+  const desktopMenu = window.matchMedia("(min-width: 761px)");
+  const handleDesktopMenu = event => {
+    if (event.matches) closeMenu();
+  };
+  if (desktopMenu.addEventListener) desktopMenu.addEventListener("change", handleDesktopMenu);
+  else desktopMenu.addListener(handleDesktopMenu);
   window.addEventListener("scroll", () => header?.classList.toggle("scrolled", window.scrollY > 16), {passive: true});
+  header?.classList.toggle("scrolled", window.scrollY > 16);
 
   document.querySelectorAll("[data-accordion] details").forEach(item => {
     item.addEventListener("toggle", () => {
