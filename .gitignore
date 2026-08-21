@@ -1,5 +1,5 @@
 # The source folder contains the original multipage template. Publish only the
-# production VerityAI landing page and the assets it actually uses.
+# Production VerityCore AI landing page and the assets it actually uses.
 *
 !/.gitignore
 !/.htaccess

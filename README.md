@@ -1,6 +1,6 @@
-# VerityAI landing page
+# VerityCore AI landing page
 
-Premium static landing page for VerityAI.
+Premium static landing page for VerityCore AI, the AI sales assistant and business automation platform from VerityCore Consultancy.
 
 ## Production URLs
 
