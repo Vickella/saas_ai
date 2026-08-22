@@ -1,4 +1,6 @@
 (() => {
+  "use strict";
+
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
@@ -9,12 +11,21 @@
   const closeMenu = () => {
     nav?.classList.remove("open");
     toggle?.setAttribute("aria-expanded", "false");
+    toggle?.setAttribute("aria-label", "Open navigation menu");
+    document.body.classList.remove("nav-open");
   };
 
-  toggle?.addEventListener("click", () => {
-    const open = nav?.classList.toggle("open") || false;
-    toggle.setAttribute("aria-expanded", String(open));
-  });
+  if (toggle && nav) {
+    toggle.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const open = toggle.getAttribute("aria-expanded") !== "true";
+      nav.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+      document.body.classList.toggle("nav-open", open);
+    });
+  }
 
   nav?.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
   document.addEventListener("keydown", event => {

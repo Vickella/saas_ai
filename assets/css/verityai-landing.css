@@ -93,3 +93,17 @@ html{scroll-padding-top:96px}body{overflow-x:hidden}section[id]{scroll-margin-to
 main>.section:not(.hero),main>.final-cta{content-visibility:auto;contain-intrinsic-size:auto 850px}
 .feature-section,.pricing-section,.faq-section{contain-intrinsic-size:auto 1150px}
 @media(max-width:760px){.problem-section{contain-intrinsic-size:auto 1250px}.feature-section{contain-intrinsic-size:auto 2700px}.workflow-section{contain-intrinsic-size:auto 1350px}.channels-section{contain-intrinsic-size:auto 1250px}.use-cases{contain-intrinsic-size:auto 1600px}.brand-story{contain-intrinsic-size:auto 850px}.pricing-section{contain-intrinsic-size:auto 2550px}.faq-section{contain-intrinsic-size:auto 2400px}.final-cta{contain-intrinsic-size:auto 650px}}
+
+/* Mobile navigation must remain above page content and embedded widgets. */
+.site-header{z-index:10000}
+@media(max-width:760px){
+  .nav-wrap{position:relative;overflow:visible}
+  .nav-toggle{position:relative;z-index:2;min-width:76px;min-height:42px;justify-content:center;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .nav-toggle[aria-expanded="true"]{color:#fff;border-color:rgba(143,196,255,.7);background:rgba(47,120,222,.28)}
+  .nav-toggle[aria-expanded="true"] i{background:transparent}
+  .nav-toggle[aria-expanded="true"] i::before{top:0;transform:rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] i::after{top:0;transform:rotate(-45deg)}
+  .site-nav{z-index:1;top:calc(100% + 8px);max-height:calc(100vh - 88px);max-height:calc(100dvh - 88px);overflow-y:auto;overscroll-behavior:contain}
+  .site-nav.open,.nav-toggle[aria-expanded="true"]+.site-nav{display:grid}
+  body.nav-open{overflow:hidden}
+}
